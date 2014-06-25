@@ -54,10 +54,8 @@
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
-    CCLOG(@"%@",
           
-                            [CCBReader load:@"Penguin"] 
-          );
+    //      [CCBReader load:@"Penguin"];
     
     [CCBReader load:@"Seal"];
 
