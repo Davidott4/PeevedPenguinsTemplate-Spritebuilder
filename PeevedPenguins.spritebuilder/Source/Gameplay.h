@@ -10,7 +10,8 @@
 #import "cocos2d.h"
 #import "Penguin.h"
 
-@interface Gameplay : CCNode {
+@interface Gameplay : CCNode <CCPhysicsCollisionDelegate>
+{
     
 }
 
