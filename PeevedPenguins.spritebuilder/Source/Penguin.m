@@ -14,7 +14,7 @@
     self = [super init];
     
     if (self) {
-       
+        CCLOG(@"Penguini");
     }
     
     return self;
