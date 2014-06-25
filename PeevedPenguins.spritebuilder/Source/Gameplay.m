@@ -1,21 +1,17 @@
 //
-//  Seal.m
+//  Gameplay.m
 //  PeevedPenguins
 //
 //  Created by David Ott on 6/25/14.
 //  Copyright 2014 Apportable. All rights reserved.
 //
 
-#import "Seal.h"
+#import "Gameplay.h"
 
 
-@implementation Seal
-- (id)init {
-    self = [super init];
+@implementation Gameplay
+{
     
-    if (self) {
-    }
-    
-    return self;
 }
+
 @end
