@@ -54,7 +54,12 @@
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
-    [CCBReader load:@"Penguin"];
+    CCLOG(@"%@",
+          NSStringFromClass(
+                            [[CCBReader load:@"Penguin"] class]
+                            )
+          );
+    
     [CCBReader load:@"Seal"];
 
     
