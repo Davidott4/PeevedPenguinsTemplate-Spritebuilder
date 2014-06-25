@@ -23,6 +23,7 @@
 
 // called on every touch in this scene
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    CCLOG(@"Tocar");
     [self launchPenguin];
 }
 
