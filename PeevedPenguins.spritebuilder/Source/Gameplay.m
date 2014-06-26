@@ -36,6 +36,8 @@
     CCNode *_currentPenguin;
     CCPhysicsJoint *_penguinCatapultJoint;
     
+    _physicsNode.collisionDelegate = self;
+    
     // visualize physics bodies & joints
     _physicsNode.debugDraw = TRUE;
 }
@@ -129,6 +131,14 @@
         CCActionFollow *follow = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
         [_contentNode runAction:follow];
     }
+}
+
+
+#pragma mark -- collision
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB;
+{
+    CCLOG(@"Something collided with a seal!");
+
 }
 - (void)retry {
     // reload this level
