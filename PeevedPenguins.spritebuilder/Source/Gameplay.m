@@ -137,9 +137,19 @@
 #pragma mark -- collision
 -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB;
 {
-    CCLOG(@"Something collided with a seal!");
+    float energy = [pair totalKineticEnergy];
+    
+    // if energy is large enough, remove the seal
+    if (energy > 5000.f) {
+        [self sealRemoved:nodeA];
+    }
 
 }
+
+- (void)sealRemoved:(CCNode *)seal {
+    [seal removeFromParent];
+}
+
 - (void)retry {
     // reload this level
     [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
