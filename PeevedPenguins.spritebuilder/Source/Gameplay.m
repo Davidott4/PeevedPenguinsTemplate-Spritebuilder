@@ -7,6 +7,7 @@
 //
 
 #import "Gameplay.h"
+#import "CCPhysics+ObjectiveChipmunk.h"
 
 static const float MIN_SPEED = 5.f;
 
@@ -172,15 +173,17 @@ static const float MIN_SPEED = 5.f;
 }
 
 #pragma mark -- collision
--(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB;
-{
+
+
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     float energy = [pair totalKineticEnergy];
     
     // if energy is large enough, remove the seal
     if (energy > 5000.f) {
-        [self sealRemoved:nodeA];
+        [[_physicsNode space] addPostStepBlock:^{
+            [self sealRemoved:nodeA];
+        } key:nodeA];
     }
-
 }
 
 - (void)sealRemoved:(CCNode *)seal {
